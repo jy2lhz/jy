@@ -1,0 +1,4 @@
+C:\Users\mikum\Documents\GitHub\TurboWavelets.Net\TurboWavelets\bin\Debug\TurboWavelets.dll
+C:\Users\mikum\Documents\GitHub\TurboWavelets.Net\TurboWavelets\bin\Debug\TurboWavelets.pdb
+C:\Users\mikum\Documents\GitHub\TurboWavelets.Net\TurboWavelets\obj\Debug\TurboWavelets.dll
+C:\Users\mikum\Documents\GitHub\TurboWavelets.Net\TurboWavelets\obj\Debug\TurboWavelets.pdb

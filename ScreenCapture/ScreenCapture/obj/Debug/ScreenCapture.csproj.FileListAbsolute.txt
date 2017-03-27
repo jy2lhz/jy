@@ -1,0 +1,19 @@
+c:\users\mikum\documents\visual studio 2017\Projects\ScreenCapture\ScreenCapture\bin\Debug\ScreenCapture.exe.config
+c:\users\mikum\documents\visual studio 2017\Projects\ScreenCapture\ScreenCapture\bin\Debug\ScreenCapture.exe
+c:\users\mikum\documents\visual studio 2017\Projects\ScreenCapture\ScreenCapture\bin\Debug\ScreenCapture.pdb
+c:\users\mikum\documents\visual studio 2017\Projects\ScreenCapture\ScreenCapture\obj\Debug\ScreenCapture.csprojResolveAssemblyReference.cache
+c:\users\mikum\documents\visual studio 2017\Projects\ScreenCapture\ScreenCapture\obj\Debug\ScreenCapture.Form1.resources
+c:\users\mikum\documents\visual studio 2017\Projects\ScreenCapture\ScreenCapture\obj\Debug\ScreenCapture.Properties.Resources.resources
+c:\users\mikum\documents\visual studio 2017\Projects\ScreenCapture\ScreenCapture\obj\Debug\ScreenCapture.csproj.GenerateResource.Cache
+c:\users\mikum\documents\visual studio 2017\Projects\ScreenCapture\ScreenCapture\obj\Debug\ScreenCapture.exe
+c:\users\mikum\documents\visual studio 2017\Projects\ScreenCapture\ScreenCapture\obj\Debug\ScreenCapture.pdb
+C:\Users\mikum\Documents\GitHub\jy\ScreenCapture\ScreenCapture\bin\Debug\ScreenCapture.exe.config
+C:\Users\mikum\Documents\GitHub\jy\ScreenCapture\ScreenCapture\bin\Debug\ScreenCapture.exe
+C:\Users\mikum\Documents\GitHub\jy\ScreenCapture\ScreenCapture\bin\Debug\ScreenCapture.pdb
+C:\Users\mikum\Documents\GitHub\jy\ScreenCapture\ScreenCapture\obj\Debug\ScreenCapture.csprojResolveAssemblyReference.cache
+C:\Users\mikum\Documents\GitHub\jy\ScreenCapture\ScreenCapture\obj\Debug\ScreenCapture.Form1.resources
+C:\Users\mikum\Documents\GitHub\jy\ScreenCapture\ScreenCapture\obj\Debug\ScreenCapture.Properties.Resources.resources
+C:\Users\mikum\Documents\GitHub\jy\ScreenCapture\ScreenCapture\obj\Debug\ScreenCapture.csproj.GenerateResource.Cache
+C:\Users\mikum\Documents\GitHub\jy\ScreenCapture\ScreenCapture\obj\Debug\ScreenCapture.exe
+C:\Users\mikum\Documents\GitHub\jy\ScreenCapture\ScreenCapture\obj\Debug\ScreenCapture.pdb
+C:\Users\mikum\Documents\GitHub\jy\ScreenCapture\ScreenCapture\bin\Debug\SevenZipSharp.dll
