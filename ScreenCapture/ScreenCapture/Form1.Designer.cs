@@ -59,7 +59,7 @@ namespace ScreenCapture
             // 
             this.button1.Location = new System.Drawing.Point(3, 0);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(65, 25);
+            this.button1.Size = new System.Drawing.Size(65, 27);
             this.button1.TabIndex = 0;
             this.button1.Text = "开启截屏";
             this.button1.UseVisualStyleBackColor = true;
@@ -69,7 +69,7 @@ namespace ScreenCapture
             // 
             this.button2.Location = new System.Drawing.Point(73, 0);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(65, 25);
+            this.button2.Size = new System.Drawing.Size(65, 27);
             this.button2.TabIndex = 1;
             this.button2.Text = "关闭截屏";
             this.button2.UseVisualStyleBackColor = true;
@@ -79,7 +79,7 @@ namespace ScreenCapture
             // 
             this.button3.Location = new System.Drawing.Point(143, 0);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(65, 25);
+            this.button3.Size = new System.Drawing.Size(65, 27);
             this.button3.TabIndex = 2;
             this.button3.Text = "读取图片";
             this.button3.UseVisualStyleBackColor = true;
@@ -89,7 +89,7 @@ namespace ScreenCapture
             // 
             this.button4.Location = new System.Drawing.Point(213, 0);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(65, 25);
+            this.button4.Size = new System.Drawing.Size(65, 27);
             this.button4.TabIndex = 3;
             this.button4.Text = "显示图片";
             this.button4.UseVisualStyleBackColor = true;
@@ -157,9 +157,9 @@ namespace ScreenCapture
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.pictureBox1.Location = new System.Drawing.Point(38, 59);
+            this.pictureBox1.Location = new System.Drawing.Point(10, 58);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(576, 324);
+            this.pictureBox1.Size = new System.Drawing.Size(640, 360);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
@@ -190,9 +190,9 @@ namespace ScreenCapture
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(662, 413);
+            this.ClientSize = new System.Drawing.Size(662, 447);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox4);
