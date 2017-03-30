@@ -51,13 +51,16 @@ namespace ScreenCapture
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
+            this.splitter1 = new System.Windows.Forms.Splitter();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(3, 0);
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button1.Location = new System.Drawing.Point(3, 5);
+            this.button1.Margin = new System.Windows.Forms.Padding(1);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(65, 27);
             this.button1.TabIndex = 0;
@@ -67,7 +70,9 @@ namespace ScreenCapture
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(73, 0);
+            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button2.Location = new System.Drawing.Point(73, 5);
+            this.button2.Margin = new System.Windows.Forms.Padding(1);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(65, 27);
             this.button2.TabIndex = 1;
@@ -77,7 +82,9 @@ namespace ScreenCapture
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(143, 0);
+            this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button3.Location = new System.Drawing.Point(143, 5);
+            this.button3.Margin = new System.Windows.Forms.Padding(1);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(65, 27);
             this.button3.TabIndex = 2;
@@ -87,7 +94,9 @@ namespace ScreenCapture
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(213, 0);
+            this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button4.Location = new System.Drawing.Point(213, 5);
+            this.button4.Margin = new System.Windows.Forms.Padding(1);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(65, 27);
             this.button4.TabIndex = 3;
@@ -136,7 +145,7 @@ namespace ScreenCapture
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox2.Location = new System.Drawing.Point(430, 0);
+            this.textBox2.Location = new System.Drawing.Point(430, 5);
             this.textBox2.MaxLength = 1;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(67, 26);
@@ -146,7 +155,7 @@ namespace ScreenCapture
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox3.Location = new System.Drawing.Point(284, 0);
+            this.textBox3.Location = new System.Drawing.Point(284, 5);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(150, 26);
@@ -172,7 +181,7 @@ namespace ScreenCapture
             // 
             this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox1.Location = new System.Drawing.Point(503, 0);
+            this.textBox1.Location = new System.Drawing.Point(503, 5);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(66, 26);
@@ -182,11 +191,21 @@ namespace ScreenCapture
             // 
             this.textBox4.Enabled = false;
             this.textBox4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox4.Location = new System.Drawing.Point(575, 0);
+            this.textBox4.Location = new System.Drawing.Point(575, 5);
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(82, 26);
             this.textBox4.TabIndex = 10;
+            // 
+            // splitter1
+            // 
+            this.splitter1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.splitter1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.splitter1.Location = new System.Drawing.Point(0, 0);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(662, 38);
+            this.splitter1.TabIndex = 11;
+            this.splitter1.TabStop = false;
             // 
             // Form1
             // 
@@ -201,7 +220,9 @@ namespace ScreenCapture
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button4);
+            this.Controls.Add(this.splitter1);
             this.Controls.Add(this.pictureBox1);
+            this.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "ScreenCapture";
@@ -255,7 +276,7 @@ namespace ScreenCapture
         public int MyWid;
         public int MyHit;
         public int MyPNum;
-        public Bitmap Mybmp;
+        public Bitmap[] Mybmp = new Bitmap[9];
 
 
         public void CallBack()
@@ -270,13 +291,13 @@ namespace ScreenCapture
 
             for (int k = 0; k < MyPNum; k++)
             {
-                Mybmp = new Bitmap(MyWid, MyHit, PixelFormat.Format24bppRgb);
-                Graphics g1 = Graphics.FromImage(Mybmp);
-                g1.CopyFromScreen(new Point(0, 0), new Point(0, 0), Mybmp.Size);
-                MemoryStream ms = new MemoryStream();
-                Mybmp.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
-                ms.WriteTo(SourceBmp);
-                ms.Close();
+                Mybmp[k] = new Bitmap(MyWid, MyHit, PixelFormat.Format24bppRgb);
+                Graphics g1 = Graphics.FromImage(Mybmp[k]);
+                g1.CopyFromScreen(new Point(0, 0), new Point(0, 0), Mybmp[k].Size);
+                //MemoryStream ms = new MemoryStream();
+                //Mybmp[k].Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+                //ms.WriteTo(SourceBmp);
+                //ms.Close();
                 //byte[] bytes = ms.GetBuffer();
                 //Stream stream = new FileStream(Stime + ".jyf", FileMode.Append, FileAccess.Write, FileShare.None);
                 //BinaryWriter binStream = new BinaryWriter(stream);
@@ -286,6 +307,13 @@ namespace ScreenCapture
                 System.Threading.Thread.Sleep(200); //Wait 0.2 second
             }
 
+            for (int k = 0; k < MyPNum; k++)
+            {
+                MemoryStream ms = new MemoryStream();
+                Mybmp[k].Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+                ms.WriteTo(SourceBmp);
+                ms.Close();
+            }
             //string path1 = System.Threading.Thread.GetDomain().BaseDirectory;
             ////SevenZipCompressor.SetLibraryPath("7z.dll");
             //SevenZipCompressor MyComp = new SevenZipCompressor();
@@ -322,6 +350,7 @@ namespace ScreenCapture
         private PictureBox pictureBox1;
         private TextBox textBox1;
         private TextBox textBox4;
+        private Splitter splitter1;
     }
 }
 

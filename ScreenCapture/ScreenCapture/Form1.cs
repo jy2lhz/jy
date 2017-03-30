@@ -39,11 +39,11 @@ namespace ScreenCapture
             button4.Enabled = false;
             开启截屏ToolStripMenuItem.Enabled = false;
             关闭截屏ToolStripMenuItem.Enabled = false;
-            Mybmp = new Bitmap(MyWid, MyHit, PixelFormat.Format24bppRgb);
-            Graphics g1 = Graphics.FromImage(Mybmp);
-            g1.CopyFromScreen(new Point(0, 0), new Point(0, 0), Mybmp.Size);
+            Mybmp[0] = new Bitmap(MyWid, MyHit, PixelFormat.Format24bppRgb);
+            Graphics g1 = Graphics.FromImage(Mybmp[0]);
+            g1.CopyFromScreen(new Point(0, 0), new Point(0, 0), Mybmp[0].Size);
             MemoryStream ms = new MemoryStream();
-            Mybmp.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+            Mybmp[0].Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
             BmpLen = (int)ms.Length;
             textBox4.Text = "大小:" + (pictureBox1.Width * 100 / MyWid) + "%";
         }
@@ -59,6 +59,7 @@ namespace ScreenCapture
 
         public byte[] bytes;
         public int ReadNum;
+        public int RBmpLen;
         public int Num = 0;
         private void button3_Click(object sender, EventArgs e)
         {
@@ -66,6 +67,9 @@ namespace ScreenCapture
             jyPath.Replace("\\\\", "\\");
             if (jyPath == "")
                 return;
+            string fileName = System.IO.Path.GetFileName(jyPath);
+            //char RNum = fileName[19];
+            ReadNum = (fileName[19] - '0');
             //Stream ALLBmp = new FileStream(jyPath, FileMode.Open, FileAccess.Read, FileShare.None);
             Stream ALLBmp = new MemoryStream();
             SevenZipExtractor MyExtr = new SevenZipExtractor(jyPath);
@@ -74,7 +78,8 @@ namespace ScreenCapture
             ALLBmp.Position = 0;
             bytes = new byte[ALLBmp.Length];
             ALLBmp.Read(bytes, 0, (int)ALLBmp.Length);
-            ReadNum =(int) (ALLBmp.Length / BmpLen);
+            //ReadNum =(int) (ALLBmp.Length / BmpLen);
+            RBmpLen = (int)(ALLBmp.Length / ReadNum);
             ALLBmp.Close();
             button4.Enabled = true;
             Num = 0;
@@ -82,8 +87,9 @@ namespace ScreenCapture
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Bitmap bmp = new Bitmap(MyWid, MyHit, PixelFormat.Format24bppRgb);
-            using (Stream stream = new MemoryStream(bytes, BmpLen * Num, BmpLen))
+            //Bitmap bmp = new Bitmap(MyWid, MyHit, PixelFormat.Format24bppRgb);
+            Bitmap bmp;
+            using (Stream stream = new MemoryStream(bytes, RBmpLen * Num, RBmpLen))
             {
                 bmp = new Bitmap(stream);
             }
@@ -243,6 +249,11 @@ namespace ScreenCapture
 
                 mouseDownPoint.Y = Cursor.Position.Y;
                 isSelected = true;
+            }
+            if (e.Button == MouseButtons.Right)
+            {
+                this.pictureBox1.Left = this.ClientSize.Width / 2 - pictureBox1.Width / 2;
+                this.pictureBox1.Top = this.ClientSize.Height / 2 - pictureBox1.Height / 2 + 20;
             }
         }
 
