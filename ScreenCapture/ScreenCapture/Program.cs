@@ -30,8 +30,7 @@ namespace ScreenCapture
 
 
 
-
-             //区分不同的快捷键
+        //区分不同的快捷键
         Dictionary<int, HotKeyCallBackHanlder> keymap = new Dictionary<int, HotKeyCallBackHanlder>();   //每一个key对于一个处理函数
         public delegate void HotKeyCallBackHanlder();
 

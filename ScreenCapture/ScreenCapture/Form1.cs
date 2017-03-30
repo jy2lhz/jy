@@ -37,6 +37,8 @@ namespace ScreenCapture
             button1.Enabled = false;
             button2.Enabled = false;
             button4.Enabled = false;
+            开启截屏ToolStripMenuItem.Enabled = false;
+            关闭截屏ToolStripMenuItem.Enabled = false;
             Mybmp = new Bitmap(MyWid, MyHit, PixelFormat.Format24bppRgb);
             Graphics g1 = Graphics.FromImage(Mybmp);
             g1.CopyFromScreen(new Point(0, 0), new Point(0, 0), Mybmp.Size);
@@ -47,16 +49,12 @@ namespace ScreenCapture
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            this.btnRegist_Click(sender, e);
-            button1.Enabled = false;
-            button2.Enabled = true;
+            this.btnRegist_Click(sender, e); 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.btnUnregist_Click(sender, e);
-            button2.Enabled = false;
-            button1.Enabled = true;
         }
 
         public byte[] bytes;
@@ -195,20 +193,12 @@ namespace ScreenCapture
 
         private void 开启截屏ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            h.Regist(this.Handle, (int)HotKeys.HotkeyModifiers.Control + (int)HotKeys.HotkeyModifiers.Alt, Keys.E, CallBack);
-            this.MyNotifyIcon.ShowBalloonTip(1, "Tips", "开启成功，按ctrl+alt+e开启截屏", ToolTipIcon.Info);
-            System.Threading.Thread.Sleep(500); //Wait 2 second
-            MyNotifyIcon.Visible = false; //这样可以控制2秒后其乖乖地消失在人间
-            MyNotifyIcon.Visible = true; //只是会闪一下
+            this.btnRegist_Click(sender, e);
         }
 
         private void 关闭截屏ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            h.UnRegist(this.Handle, CallBack);
-            this.MyNotifyIcon.ShowBalloonTip(1, "Tips", "截屏功能已关闭", ToolTipIcon.Info);
-            System.Threading.Thread.Sleep(500); //Wait 2 second
-            MyNotifyIcon.Visible = false; //这样可以控制2秒后其乖乖地消失在人间
-            MyNotifyIcon.Visible = true; //只是会闪一下
+            this.btnUnregist_Click(sender, e);
         }
 
         private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -238,6 +228,7 @@ namespace ScreenCapture
             if (OnLock == 0)
             {
                 button1.Enabled = true;
+                开启截屏ToolStripMenuItem.Enabled = true;
             }
             OnLock++;
         }

@@ -151,13 +151,13 @@ namespace ScreenCapture
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(150, 26);
             this.textBox3.TabIndex = 7;
-            this.textBox3.Text = "输入截图张数，1-9:";
+            this.textBox3.Text = "连续截图张数(1-9):";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.pictureBox1.Location = new System.Drawing.Point(10, 58);
+            this.pictureBox1.Location = new System.Drawing.Point(10, 44);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(640, 360);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -192,8 +192,7 @@ namespace ScreenCapture
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(662, 447);
-            this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(662, 418);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox1);
@@ -202,6 +201,7 @@ namespace ScreenCapture
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button4);
+            this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "ScreenCapture";
@@ -222,6 +222,10 @@ namespace ScreenCapture
         {
             //这里注册了Ctrl+Alt+E 快捷键
             h.Regist(this.Handle, (int)HotKeys.HotkeyModifiers.Control + (int)HotKeys.HotkeyModifiers.Alt, Keys.E, CallBack);
+            button1.Enabled = false;
+            button2.Enabled = true;
+            开启截屏ToolStripMenuItem.Enabled = false;
+            关闭截屏ToolStripMenuItem.Enabled = true;
             this.MyNotifyIcon.ShowBalloonTip(1, "Tips", "开启成功，按ctrl+alt+e开启截屏", ToolTipIcon.Info);
             System.Threading.Thread.Sleep(500); //Wait 2 second
             MyNotifyIcon.Visible = false; //这样可以控制2秒后其乖乖地消失在人间
@@ -231,6 +235,10 @@ namespace ScreenCapture
         private void btnUnregist_Click(object sender, EventArgs e)
         {
             h.UnRegist(this.Handle, CallBack);
+            button2.Enabled = false;
+            button1.Enabled = true;
+            关闭截屏ToolStripMenuItem.Enabled = false;
+            开启截屏ToolStripMenuItem.Enabled = true;
             this.MyNotifyIcon.ShowBalloonTip(1, "Tips", "截屏功能已关闭", ToolTipIcon.Info);
             System.Threading.Thread.Sleep(500); //Wait 2 second
             MyNotifyIcon.Visible = false; //这样可以控制2秒后其乖乖地消失在人间
