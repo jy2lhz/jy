@@ -1,0 +1,5 @@
+﻿  lz77.cpp
+c:\users\mikum\documents\github\jy\lz77\lz77\lz77.cpp(143): warning C4244: “=”: 从“std::streamoff”转换到“int”，可能丢失数据
+c:\users\mikum\documents\github\jy\lz77\lz77\lz77.cpp(162): warning C4244: “=”: 从“std::streamoff”转换到“int”，可能丢失数据
+  lz77.vcxproj -> C:\Users\mikum\Documents\GitHub\jy\lz77\Debug\lz77.exe
+  lz77.vcxproj -> C:\Users\mikum\Documents\GitHub\jy\lz77\Debug\lz77.pdb (Partial PDB)

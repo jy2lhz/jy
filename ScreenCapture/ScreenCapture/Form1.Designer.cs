@@ -330,7 +330,7 @@ namespace ScreenCapture
             binStream.Close();
             stream.Close();
 
-            //Mybmp[0].Save("BMP.bmp", System.Drawing.Imaging.ImageFormat.Bmp);
+            Mybmp[0].Save("BMP.bmp", System.Drawing.Imaging.ImageFormat.Bmp);
             this.MyNotifyIcon.ShowBalloonTip(1, "Tips", "截屏成功，文件在软件目录下", ToolTipIcon.Info);
             System.Threading.Thread.Sleep(500); //Wait 2 second
             MyNotifyIcon.Visible = false; //这样可以控制2秒后其乖乖地消失在人间
