@@ -6,16 +6,18 @@
 #include <fstream>
 
 
-#define WindowLength 256  //2的8次方
-#define MaxLen 256       //2的7次方
+#define WindowLength 255  //2的8次方
+#define MaxLen 255       //2的7次方
 
 typedef struct {
 	unsigned short off, len;
+	//char off, len;
 	char c;
 }CODE;
 
 
-int Match(char *WindowString, int Sn, char *NextString, int Nn)  //字符串匹配
+//lz77编码使用的字符串匹配
+int Match(char *WindowString, int Sn, char *NextString, int Nn) 
 {
 	int i = 0, j = 0, k;
 	while ((i < Sn) && (j < Nn))
@@ -37,6 +39,7 @@ int Match(char *WindowString, int Sn, char *NextString, int Nn)  //字符串匹配
 	return k;
 }
 
+//lz77编码，得到的是三元组结构体组
 void Code(char *arr, int ILen, CODE *CodeFile, int *CodeLen){
 	int WindowsStart = 0, WindowEnd = 0;
 	*CodeLen = 0;
@@ -77,6 +80,7 @@ void Code(char *arr, int ILen, CODE *CodeFile, int *CodeLen){
 	}
 }
 
+//对读取的编码压缩数据进行解码，输出为解码后的文件数组，全部都是char型
 void Decode(char *arr, int CodeLen, char *outData)
 {
 	int Move = 0;
@@ -97,6 +101,7 @@ void Decode(char *arr, int CodeLen, char *outData)
 	}
 }
 
+//计算解压后的文件大小，用于定义数组大小
 int Count(char *arr, int Codelen)
 {
 	//int groupLen = Codelen / 3;
@@ -108,6 +113,7 @@ int Count(char *arr, int Codelen)
 	return bmpLen;
 }
 
+//将编码后的三元组输出到文件
 int lz77Out(CODE *CodeFile, int CodeLen)
 {
 	std::ofstream Out;
@@ -117,9 +123,15 @@ int lz77Out(CODE *CodeFile, int CodeLen)
 	{
 		//Out << CodeFile[i].off << "," << CodeFile[i].len << "," << CodeFile[i].c << "/";
 		//Out << CodeFile[i].off << CodeFile[i].len << CodeFile[i].c;
+
 		temp = (CodeFile[i].off << 8) + CodeFile[i].len;
 		Out.write((char*)&temp, sizeof(unsigned short));
 		Out.write(&(CodeFile[i].c), sizeof(char));
+		
+		/*Out.write(&(CodeFile[i].len), sizeof(char));
+		Out.write(&(CodeFile[i].off), sizeof(char));
+		Out.write(&(CodeFile[i].c), sizeof(char));*/
+
 	}
 	Out.close();
 	return 1;
